@@ -1,0 +1,6 @@
+{
+    "name": "NestJS with druidfi/stonehenge",
+    "description": "NestJS devcontainer 樣板，支援 database、redis、Traefik（需 druidfi/stonehenge）",
+    "icon": "https://nestjs.com/img/logo_text.svg",
+    "categories": ["Node.js", "NestJS", "Web", "DevOps"]
+}
