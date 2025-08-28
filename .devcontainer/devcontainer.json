@@ -1,0 +1,44 @@
+{
+    "name": "NestJS Dev Container",
+    "features": {
+        "ghcr.io/devcontainers-extra/features/nestjs-cli:2": {
+			"version": "latest"
+		},
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {
+			"moby": true,
+			"azureDnsAutoDetection": true,
+			"installDockerBuildx": true,
+			"version": "20.10",
+			"dockerDashComposeVersion": "v2"
+		},
+		"ghcr.io/devcontainers/features/git-lfs:1": {
+			"autoPull": true,
+			"version": "latest"
+		},
+
+		"ghcr.io/devcontainers-extra/features/zsh-plugins:0": {
+			"plugins": "ssh-agent npm",
+			"omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions",
+            "username": "node"
+		}
+    },
+    "dockerComposeFile": [
+        "docker-compose.yml",
+        "docker-compose.override.yml"
+    ],
+    "service": "nest",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode"
+            ]
+        }
+    },
+    "postCreateCommand": "./.devcontainer/scripts/postCreateCommand.sh",
+    "forwardPorts": [
+        3000
+    ],
+    "remoteUser": "node"
+}

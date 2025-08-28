@@ -1,0 +1,18 @@
+version: "3.7"
+### ====== Network ====== ###
+networks:
+  traefik-proxy:
+    name: stonehenge-network
+    external: true
+
+services:
+  nest:
+    networks:
+      - traefik-proxy
+    labels:
+      - "traefik.enable=true"
+
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.rule=Host(`${COMPOSE_PROJECT_NAME}.docker.so`)"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.entrypoints=https"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.tls=true"
+      - "traefik.http.services.${COMPOSE_PROJECT_NAME}.loadbalancer.server.port=3000"

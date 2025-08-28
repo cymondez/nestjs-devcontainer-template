@@ -1,0 +1,48 @@
+version: '3.8'
+networks:
+  nest-development:
+services:
+  nest:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspace:cached
+        # 使用 docker-compose 進行 dev conainer 一定要加這行，避免容器主程序執行結束而退出。
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    environment:
+
+      # MYSQL
+      - APP__DB__TYPE=mysql
+      - APP__DB__HOST=database
+      - APP__DB__USERNAME=DBUSER
+      - APP__DB__PASSWORD=DBPASSWORD
+      - APP__DB__NAME=${COMPOSE_PROJECT_NAME}
+
+      # Redis
+      - APP__REDIS__PORT=6379
+      - APP__REDIS__HOST=mem-cache
+
+    depends_on:
+      - database
+      - mem-cache
+
+    networks:
+      - nest-development
+  
+  # database
+  database:
+    image: mysql:8
+    environment:
+      - MYSQL_ROOT_PASSWORD=DBPASSWORD
+      - MYSQL_DATABASE=${COMPOSE_PROJECT_NAME}
+      - MYSQL_USER=DBUSER
+      - MYSQL_PASSWORD=DBPASSWORD
+
+    networks:
+      - nest-development
+  # memory cache
+  mem-cache:
+    image: redis:8.2
+    networks:
+      - nest-development
