@@ -33,16 +33,20 @@
             // 預設使用的VS Code擴充，如有需要請自行新增或移除
             "extensions": [
                 "dbaeumer.vscode-eslint",
-                "esbenp.prettier-vscode",
-                "nestjs.nestjs-files",
-                "ms-azuretools.vscode-docker",
                 "eamodio.gitlens",
+                "esbenp.prettier-vscode",
+                "github.copilot",
+                "github.copilot-chat",
                 "mhutchie.git-graph",
+                "ms-azuretools.vscode-containers",
+                "ms-azuretools.vscode-docker",
+                "ms-ceintl.vscode-language-pack-zh-hant",
                 "ms-vsliveshare.vsliveshare",
-                "VisualStudioExptTeam.vscodeintellicode",
-                "streetsidesoftware.code-spell-checker",
                 "mtxr.sqltools",
-                "mtxr.sqltools-driver-mysql"
+                "mtxr.sqltools-driver-mysql",
+                "streetsidesoftware.code-spell-checker",
+                "visualstudioexptteam.intellicode-api-usage-examples",
+                "visualstudioexptteam.vscodeintellicode"
             ]
             ,
             "settings": {
