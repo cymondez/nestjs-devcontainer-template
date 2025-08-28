@@ -1,6 +1,11 @@
 version: '3.8'
+
 networks:
   nest-development:
+
+volumes:
+  database-data:
+
 services:
   nest:
     build:
@@ -17,7 +22,7 @@ services:
       - APP__DB__HOST=database
       - APP__DB__USERNAME=DBUSER
       - APP__DB__PASSWORD=DBPASSWORD
-      - APP__DB__NAME=${COMPOSE_PROJECT_NAME}
+      - APP__DB__NAME=devdb
 
       # Redis
       - APP__REDIS__PORT=6379
@@ -35,9 +40,11 @@ services:
     image: mysql:8
     environment:
       - MYSQL_ROOT_PASSWORD=DBPASSWORD
-      - MYSQL_DATABASE=${COMPOSE_PROJECT_NAME}
+      - MYSQL_DATABASE=devdb
       - MYSQL_USER=DBUSER
       - MYSQL_PASSWORD=DBPASSWORD
+    volumes:
+      - database-data:/var/lib/mysql
 
     networks:
       - nest-development

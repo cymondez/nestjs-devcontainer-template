@@ -16,11 +16,11 @@
 			"version": "latest"
 		},
 
-		"ghcr.io/devcontainers-extra/features/zsh-plugins:0": {
-			"plugins": "ssh-agent npm",
-			"omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions",
+        "ghcr.io/devcontainers-extra/features/zsh-plugins:0": {
+            "plugins": "ssh-agent npm",
+            "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions",
             "username": "node"
-		}
+        }
     },
     "dockerComposeFile": [
         "docker-compose.yml",
@@ -30,10 +30,39 @@
     "workspaceFolder": "/workspace",
     "customizations": {
         "vscode": {
+            // 預設使用的VS Code擴充，如有需要請自行新增或移除
             "extensions": [
                 "dbaeumer.vscode-eslint",
-                "esbenp.prettier-vscode"
+                "esbenp.prettier-vscode",
+                "nestjs.nestjs-files",
+                "ms-azuretools.vscode-docker",
+                "eamodio.gitlens",
+                "mhutchie.git-graph",
+                "ms-vsliveshare.vsliveshare",
+                "VisualStudioExptTeam.vscodeintellicode",
+                "streetsidesoftware.code-spell-checker",
+                "mtxr.sqltools",
+                "mtxr.sqltools-driver-mysql"
             ]
+            ,
+            "settings": {
+                "sqltools.connections": [
+                    {
+
+                        "driver": "MySQL",
+                        "name": "dev-mysql",
+                        "server": "database",
+                        "port": 3306,
+                        "database": "devdb",
+                        "username": "DBUSER",
+                        "password": "DBPASSWORD",
+                        "mysqlOptions": {
+                            "authProtocol": "default",
+                            "enableSsl": "Disabled"
+                        }
+                    }
+                ]
+            }
         }
     },
     "postCreateCommand": "./.devcontainer/scripts/postCreateCommand.sh",
