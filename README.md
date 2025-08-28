@@ -4,6 +4,8 @@
 
 - 預設支援 database、redis
 - 可選用 Traefik 反向代理（需搭配 druidfi/stonehenge 環境）
+- 預先安裝了VSCode NestJS相關的擴充
+- 預先裝載並設定MySQL的連線擴充工具
 
 ---
 
