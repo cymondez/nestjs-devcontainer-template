@@ -69,7 +69,7 @@
             }
         }
     },
-    "postCreateCommand": "./.devcontainer/scripts/postCreateCommand.sh",
+    "postCreateCommand": "chmod +x ./.devcontainer/scripts/postCreateCommand.sh && ./.devcontainer/scripts/postCreateCommand.sh",
     "forwardPorts": [
         3000
     ],
