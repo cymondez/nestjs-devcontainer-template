@@ -9,6 +9,22 @@
 
 ---
 
+## NestJS CLI 版本設定
+
+於 `.devcontainer\devcontainer.json` 的 feature `ghcr.io/devcontainers-extra/features/nestjs-cli:2`
+中，進行 nest cli版本設定
+
+```json
+
+    "features": {
+      "ghcr.io/devcontainers-extra/features/nestjs-cli:2": {
+        // latest 為使用在新版cli，如需要特定版本請明確指定，如 "10.0.0"
+        "version": "latest"
+      },
+    },
+
+```
+
 ## Traefik 與 Stonehenge 依賴
 
 - `docker-compose.override.yml` 內的 Traefik 設定，需依賴 [druidfi/stonehenge](https://github.com/druidfi/stonehenge) 所建立的 `stonehenge-network`。
